@@ -11,7 +11,6 @@ const App = () => {
       <Header />
       <Nav />
       <Profile />
-      <h1>Hello World</h1>
     </div>
   );
 }
