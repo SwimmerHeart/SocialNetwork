@@ -1,22 +1,23 @@
 import React from 'react';
+import s from './Nav.module.css';
 
 const Nav = () => {
     return (
-        <nav className="nav">
+        <nav className={s.nav}>
             <ul>
-                <li>
+                <li className={`${s.item} ${s.activ}`}>
                     <a>Profile</a>
                 </li>
-                <li>
+                <li className={s.item}>
                     <a>Messages</a>
                 </li>
-                <li>
+                <li className={s.item}>
                     <a>News</a>
                 </li>
-                <li>
+                <li className={s.item}>
                     <a>Misic</a>
                 </li>
-                <li>
+                <li className={s.item}>
                     <a>Settings</a>
                 </li>
             </ul>

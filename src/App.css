@@ -10,24 +10,3 @@
   width: 1200px;
   margin: 0 auto;
 }
-
-
-.header {
-  grid-area: header;
-  background-color: blue;
-}
-
-.header img {
-  width: 70px;
-  ;
-}
-
-.nav {
-  grid-area: nav;
-  background-color: brown;
-}
-
-.content {
-  grid-area: cont;
-  background-color: burlywood;
-}
