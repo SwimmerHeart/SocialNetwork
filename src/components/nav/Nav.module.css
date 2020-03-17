@@ -1,13 +1,24 @@
+ul {
+    text-align: center;
+}
+
 .nav {
     grid-area: nav;
     background-color: brown;
 }
 
 .item {
-    color: #fff;
     list-style: none;
+    text-transform: uppercase;
+    margin-bottom: 20px;
 }
 
-.activ {
+.item a {
+    color: #fff;
+    text-decoration: none;
+
+}
+
+.item .active {
     color: gold;
 }

@@ -1,8 +1,7 @@
-.content {
-    grid-area: cont;
-    background-color: burlywood;
-}
-
 .item {
     color: greenyellow;
+}
+
+img {
+    width: 100%;
 }

@@ -4,7 +4,7 @@ import Posts from './posts/Posts';
 
 const Profile = () => {
     return (
-        <div className={s.content}>
+        <div>
             <div>
                 <img src="https://startupanz.com/wp-content/uploads/2019/07/maxresdefault-1.jpg" />
             </div>
