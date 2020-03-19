@@ -3,14 +3,6 @@
     grid-template-columns: 2fr 10fr;
 }
 
-.dialog {
-    padding: 10px;
-}
-
 .active {
     color: gold;
-}
-
-.message {
-    padding: 10px;
 }
