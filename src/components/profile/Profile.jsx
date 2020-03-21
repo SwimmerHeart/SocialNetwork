@@ -3,12 +3,16 @@ import s from './Profile.module.css'
 import Posts from './posts/Posts';
 import ProfileInfo from './profileInfo/ProfileInfo';
 
+// let posts = [
+//     { message: 'Привет, как дела?', likesCount: "23" },
+//     { message: 'Это мой первый пост', likesCount: "5" }
+// ];
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <div>
             <ProfileInfo />
-            <Posts />
+            <Posts posts={props.state.posts} />
         </div>
     )
 }

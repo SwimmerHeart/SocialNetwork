@@ -2,14 +2,11 @@ import React from 'react';
 import s from './Posts.module.css'
 import Post from './post/Post';
 
-let posts = [
-    { message: 'Привет, как дела?', likesCount: "23" },
-    { message: 'Это мой первый пост', likesCount: "5" }
-];
-
-let postsElement = posts.map(p => <Post message={p.message} likesCount={p.likesCount} />)
 
 const Posts = (props) => {
+
+    let postsElement = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} />);
+
     return (
         <div>
             <div className={s.postsBlock}>
