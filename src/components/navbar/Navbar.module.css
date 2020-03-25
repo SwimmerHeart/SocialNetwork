@@ -1,0 +1,5 @@
+.navbar {
+    grid-area: nav;
+    background-color: brown;
+    text-align: center;
+}

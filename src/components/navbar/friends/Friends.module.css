@@ -1,0 +1,19 @@
+.logo {
+    color: #fff;
+}
+
+.logo h2 {
+    text-transform: uppercase;
+}
+
+.myfriends {
+    display: inline-block;
+}
+
+.item {
+    width: 20px;
+}
+
+.avatar {
+    border-radius: 50%;
+}
