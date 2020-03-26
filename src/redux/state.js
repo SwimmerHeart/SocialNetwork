@@ -20,7 +20,8 @@ let state = {
             { id: 1, message: 'Привет. Как дела?' },
             { id: 2, message: 'Изучаю React' },
             { id: 3, message: 'Давай играть в Roblox' }
-        ]
+        ],
+        newMessageText: 'Мой новый пост'
     }
 };
 
@@ -37,6 +38,21 @@ export let addPost = () => {
 
 export let updateNewPostText = (newText) => {
     state.profilePage.newPostText = newText;
+    rerenderEntireTree(state);
+};
+
+export let onSendMessageClick = () => {
+    let newMessage = {
+        id: 4,
+        message: state.dialogsPage.newMessageText,
+    };
+    state.dialogsPage.messages.push(newMessage);
+    state.dialogsPage.newMessageText = '';
+    rerenderEntireTree(state);
+};
+
+export let updateNewMessageText = (newText) => {
+    state.dialogsPage.newMessageText = newText;
     rerenderEntireTree(state);
 };
 
