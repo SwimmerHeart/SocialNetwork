@@ -1,64 +1,53 @@
-let rerenderEntireTree = () => {
-    console.log('state change');
-}
-let state = {
-    profilePage: {
-        posts: [
-            { id: 1, message: 'Привет, как дела?', likesCount: "23" },
-            { id: 2, message: 'Это мой первый пост', likesCount: "5" }
-        ],
-        newPostText: 'Напиши мне...'
+import profileReducer from "./profileReducer";
+import dialogsReducer from "./dialogsReducer";
+import sidebarReducer from "./sidebarReducer";
+
+let store = {
+    _state: {
+        profilePage: {
+            posts: [
+                { id: 1, message: 'Привет, как дела?', likesCount: "23" },
+                { id: 2, message: 'Это мой первый пост', likesCount: "5" }
+            ],
+            newPostText: 'Напиши мне...'
+        },
+        dialogsPage: {
+            dialogs: [
+                { id: 1, name: 'Саша' },
+                { id: 2, name: 'Женя' },
+                { id: 3, name: 'Александр' },
+                { id: 4, name: 'Василий' },
+                { id: 5, name: 'Дима' },
+            ],
+            messages: [
+                { id: 1, message: 'Привет. Как дела?' },
+                { id: 2, message: 'Изучаю React' },
+                { id: 3, message: 'Давай играть в Roblox' }
+            ],
+            newMessageText: ''
+        },
+        sidebar: {}
     },
-    dialogsPage: {
-        dialogs: [
-            { id: 1, name: 'Саша' },
-            { id: 2, name: 'Женя' },
-            { id: 3, name: 'Александр' },
-            { id: 4, name: 'Василий' },
-            { id: 5, name: 'Дима' },
-        ],
-        messages: [
-            { id: 1, message: 'Привет. Как дела?' },
-            { id: 2, message: 'Изучаю React' },
-            { id: 3, message: 'Давай играть в Roblox' }
-        ],
-        newMessageText: 'Мой новый пост'
+    _callSubscrider() {
+        console.log('State changed');
+    },
+    getState() {
+        return this._state;
+    },
+    subscribe(observer) {
+        this._callSubscrider = observer;
+    },
+    dispatch(action) {
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        this._state.sidebar = sidebarReducer(this._state.sidebar, action);
+
+        this._callSubscrider(this._state);
     }
-};
-
-export const addPost = () => {
-    let newPost = {
-        id: 3,
-        message: state.profilePage.newPostText,
-        likesCount: 0
-    };
-    state.profilePage.posts.push(newPost);
-    state.profilePage.newPostText = '';
-    rerenderEntireTree(state);
-};
-
-export const updateNewPostText = (newText) => {
-    state.profilePage.newPostText = newText;
-    rerenderEntireTree(state);
-};
-
-export const onSendMessageClick = () => {
-    let newMessage = {
-        id: 4,
-        message: state.dialogsPage.newMessageText,
-    };
-    state.dialogsPage.messages.push(newMessage);
-    state.dialogsPage.newMessageText = '';
-    rerenderEntireTree(state);
-};
-
-export const updateNewMessageText = (newText) => {
-    state.dialogsPage.newMessageText = newText;
-    rerenderEntireTree(state);
-};
-
-export const subscribe = (observer) => {
-    rerenderEntireTree = observer;
 }
 
-export default state;
+
+
+// windows.store = store;
+
+export default store;
